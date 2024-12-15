@@ -1,0 +1,48 @@
+<div class="container p-4">
+  <h1 class="display-5 fw-bold text-body-emphasis text-center">Find and Replace Form</h1>
+  <form [formGroup]="findReplaceForm">
+  <div class="mb-3">
+    <div
+      [innerHTML]="highlightedText"
+    ></div>
+    <label for="textArea" class="form-label fw-bold">Enter the Text</label>
+    <textarea
+      id="textArea"
+      class="form-control"
+      rows="10"
+      formControlName="textArea"
+      placeholder="Paste your text here..."
+    ></textarea>
+    <div *ngIf="textArea?.touched && textArea?.invalid" class="text-danger">
+      Text area is required.
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="searchText" class="form-label fw-bold">Find</label>
+    <input
+      type="text"
+      id="searchText"
+      class="form-control"
+      formControlName="searchText"
+      placeholder="Enter text to find"
+    />
+    <div *ngIf="searchText?.touched && searchText?.invalid" class="text-danger">
+     Find text is required.
+   </div>
+  </div>
+
+  <!-- Replace Field -->
+  <div class="mb-3">
+    <label for="replaceText" class="form-label fw-bold">Replace With</label>
+    <input
+      type="text"
+      id="replaceText"
+      class="form-control"
+      formControlName="replaceText"
+      placeholder="Enter text to replace with"
+    />
+  </div>
+  <p class="highlight" *ngIf="textReplaced">Occurrences Found: {{ occurrences }}</p>
+  <button class="btn btn-primary me-2"  [disabled]="findReplaceForm.invalid" (click)="findAndReplace()">Find and Replace</button>
+</form>
+</div>

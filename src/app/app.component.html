@@ -1,0 +1,28 @@
+<div class="container mx-auto mt-5 mb-5">
+  <!--<form [formGroup]="findReplaceForm">
+    <div class="border border-dark rounded p-3 mb-3">
+    <div class="mb-3">
+      <label for="input1" class="form-label">Text to Find</label>
+      <input type="text" formControlName="findText" class="form-control" id="input1" placeholder="Enter Text to Find">
+      <div *ngIf="findReplaceForm.get('findText')?.touched && findReplaceForm.get('findText')?.invalid" class="ml-3 mb-3 text-danger">
+              <small *ngIf="findReplaceForm.get('findText')?.errors?.['required']">Find Text is required.</small>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="input2" class="form-label">Text to Replace</label>
+      <input type="text" formControlName="replaceText" class="form-control" id="input2" placeholder="Enter Text to Replace">
+      <div *ngIf="findReplaceForm.get('replaceText')?.touched && findReplaceForm.get('replaceText')?.invalid" class="text-danger">
+              <small *ngIf="findReplaceForm.get('replaceText')?.errors?.['required']">Replace Text is required.</small>
+      </div>
+    </div>
+    <div class="text-end mt-3">
+      <button type="button" class="btn btn-secondary me-2" (click)="onReplace('Replace')">Replace</button>
+      <button type="button" class="btn btn-primary" (click)="onReplace('ReplaceAll')">Replace All</button>
+    </div>
+  </div>
+  </form>
+  <p [appHighlight]="findReplaceForm.get('findText')?.value" [fullText]="paragraphText"  class="border border-dark rounded p-3 mb-3">
+
+  </p>-->
+  <app-find-replace></app-find-replace>
+</div>
