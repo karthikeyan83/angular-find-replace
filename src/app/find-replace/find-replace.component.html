@@ -1,10 +1,21 @@
 <div class="container p-4">
   <h1 class="display-5 fw-bold text-body-emphasis text-center">Find and Replace Form</h1>
   <form [formGroup]="findReplaceForm">
-  <div class="mb-3">
-    <div
-      [innerHTML]="highlightedText"
-    ></div>
+  <div>
+  <div class="mb-3" *ngIf="textReplaced">
+    <div>
+      <label for="originalText" class="form-label fw-bold">Original Text</label>
+      <div [innerHTML]="showOriginalText" ></div>
+    </div>
+    <div class="divider"></div>
+    <hr class="bg-danger border-2 border-top border-danger" />
+    <div>
+      <label for="replacedText" class="form-label fw-bold">Replaced Text</label>
+      <div [innerHTML]="showReplaceText"></div>
+    </div>
+    <div class="divider"></div>
+    <hr class="bg-danger border-2 border-top border-danger" />
+  </div>
     <label for="textArea" class="form-label fw-bold">Enter the Text</label>
     <textarea
       id="textArea"
@@ -42,7 +53,7 @@
       placeholder="Enter text to replace with"
     />
   </div>
-  <p class="highlight" *ngIf="textReplaced">Occurrences Found: {{ occurrences }}</p>
+  <p class="highlight" *ngIf="textReplaced" [innerHTML]="occurrences"></p>
   <button class="btn btn-primary me-2"  [disabled]="findReplaceForm.invalid" (click)="findAndReplace()">Find and Replace</button>
 </form>
 </div>
